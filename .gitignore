@@ -1,0 +1,10 @@
+# Segreti
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Vecchi dati della versione SQLite
+data/

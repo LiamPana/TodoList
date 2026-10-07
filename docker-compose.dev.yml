@@ -1,0 +1,11 @@
+# Override per lo sviluppo: si usa insieme al compose principale.
+#   docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
+services:
+  backend:
+    volumes:
+      # Il codice sul disco viene montato nel container: ogni modifica è subito visibile
+      - ./backend/app:/app
+    environment:
+      FLASK_DEBUG: "1"
+    # Flask con debugger e ricarica automatica al salvataggio dei file
+    command: ["python", "-m", "flask", "--app", "app", "run", "--host", "0.0.0.0", "--port", "5050", "--debug"]
